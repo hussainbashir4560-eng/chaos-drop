@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -108,7 +107,7 @@ body {
     padding: 40px;
     text-align: center;
     border-radius: 15px;
-    z-index: 40;
+    z-index: 200;
 }
 
 .gameOver h2 {
@@ -133,14 +132,14 @@ body {
 /* MOBILE CONTROLS */
 
 .mobileControls {
-    display: none;
+    display: flex;
     position: absolute;
     bottom: 20px;
     left: 0;
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    z-index: 30;
+    z-index: 100;
 }
 
 .mobileControls button {
@@ -160,14 +159,6 @@ body {
 
 @media (max-width: 768px) {
 
-    .mobileControls {
-        display: flex;
-    }
-
-    .mobileControls button {
-        display: block;
-    }
-
     .title {
         font-size: 22px;
         top: 15px;
@@ -181,16 +172,3 @@ body {
     }
 
 }
-
-
-/* GAME OVER PAR CONTROLS HIDE */
-
-@media (max-width: 768px) {
-
-    .game:has(.gameOver[style*="display: block"]) .mobileControls {
-        display: none;
-    }
-
-}
-
-
