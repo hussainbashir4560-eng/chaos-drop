@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Drop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game">
+        <h1 class="title">CHAOS DROP</h1>
+        <div class="score">Score: 0</div>
+        <div class="player"></div>
+        <div class="platform p1"></div>
+        <div class="platform p2"></div>
+        <div class="platform p3"></div>
+        <div class="platform p4"></div>
+        <div class="platform p5"></div>
+        <div class="platform p6"></div>
+        <div class="ground"></div>
+        
+        <div class="gameOver">
+            <div class="mobileControls">
+                <button id="leftBtn">◀</button>
+                <button id="jumpBtn">▲</button>
+                <button id="rightBtn">▶</button>
+            </div>
+            <h2>GAME OVER</h2>
+            <p>Score: <span id="finalScore">0</span></p> <button onclick="location.reload()">RESTART</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
