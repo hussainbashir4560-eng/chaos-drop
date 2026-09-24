@@ -1,3 +1,4 @@
+
 let game = document.querySelector(".game");
 let player = document.querySelector(".player");
 let scoreText = document.querySelector(".score");
@@ -23,6 +24,7 @@ let onGround = true;
 
 let score = 0;
 let currentPlatform = null;
+
 
 // PLATFORMS
 
@@ -66,6 +68,7 @@ platformElements.forEach(function (element, index) {
     });
 
 });
+
 
 // JUMP
 
@@ -147,7 +150,6 @@ function gameLoop() {
         return;
     }
 
-
     let oldY = y;
 
 
@@ -205,7 +207,6 @@ function gameLoop() {
 
             let element = platform.element;
 
-
             let platformLeft =
                 platform.left;
 
@@ -221,7 +222,6 @@ function gameLoop() {
             let horizontal =
                 playerRight > platformLeft &&
                 playerLeft < platformRight;
-
 
             let vertical =
                 oldBottom >= platformTop &&
@@ -248,14 +248,11 @@ function gameLoop() {
                         "Score: " + score;
 
                     currentPlatform = element;
-
                 }
 
                 break;
             }
-
         }
-
     }
 
 
@@ -283,9 +280,7 @@ function gameLoop() {
         } else {
 
             onGround = false;
-
         }
-
     }
 
 
@@ -295,6 +290,8 @@ function gameLoop() {
 
         let element = platform.element;
 
+
+        // LEFT / RIGHT MOVEMENT
 
         platform.left +=
             platform.speed *
@@ -313,7 +310,6 @@ function gameLoop() {
                 20;
 
             platform.direction = -1;
-
         }
 
 
@@ -322,7 +318,6 @@ function gameLoop() {
             platform.left = 20;
 
             platform.direction = 1;
-
         }
 
 
@@ -330,21 +325,42 @@ function gameLoop() {
             platform.left + "px";
 
 
-        // PLATFORM GOES DOWN
+        // PLATFORM MOVES DOWN
 
         platform.bottom -= 0.35;
-
 
         element.style.bottom =
             platform.bottom + "px";
 
 
-        // RESET PLATFORM
+        // PLATFORM RESET
 
         if (platform.bottom < -100) {
 
+            let highestBottom = 0;
+
+
+            platforms.forEach(function (otherPlatform) {
+
+                if (otherPlatform !== platform) {
+
+                    if (
+                        otherPlatform.bottom >
+                        highestBottom
+                    ) {
+                        highestBottom =
+                            otherPlatform.bottom;
+                    }
+                }
+
+            });
+
+
+            // NEW PLATFORM ONLY 110px ABOVE
+            // THE HIGHEST PLATFORM
+
             platform.bottom =
-                game.clientHeight + 100;
+                highestBottom + 110;
 
 
             platform.left =
@@ -356,13 +372,15 @@ function gameLoop() {
                 ) + 20;
 
 
+            platform.direction =
+                Math.random() > 0.5 ? 1 : -1;
+
+
             element.style.bottom =
                 platform.bottom + "px";
 
-
             element.style.left =
                 platform.left + "px";
-
         }
 
     });
@@ -384,12 +402,10 @@ function gameLoop() {
         endGame();
 
         return;
-
     }
 
 
     requestAnimationFrame(gameLoop);
-
 }
 
 
@@ -402,9 +418,7 @@ leftBtn.addEventListener(
         event.preventDefault();
 
         if (gameRunning) {
-
             x -= 5;
-
         }
 
     }
@@ -420,9 +434,7 @@ rightBtn.addEventListener(
         event.preventDefault();
 
         if (gameRunning) {
-
             x += 5;
-
         }
 
     }
@@ -452,7 +464,6 @@ document.querySelector(".mobileControls").style.display = "flex";
 player.style.left = x + "%";
 
 player.style.bottom = "80px";
-
 
 gameLoop();
 
