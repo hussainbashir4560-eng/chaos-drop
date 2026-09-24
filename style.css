@@ -221,3 +221,20 @@ body {
     }
 
 }
+@media (max-width: 768px) {
+    .mobileControls {
+        display: flex !important;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        justify-content: space-around;
+        z-index: 100;
+    }
+
+    .mobileControls button {
+        display: block !important;
+        width: 65px;
+        height: 65px;
+    }
+}
