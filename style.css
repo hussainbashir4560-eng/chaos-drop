@@ -134,7 +134,7 @@ body {
 .mobileControls {
     display: flex;
     position: absolute;
-    bottom: 20px;
+    bottom: 60px;
     left: 0;
     width: 100%;
     justify-content: space-around;
