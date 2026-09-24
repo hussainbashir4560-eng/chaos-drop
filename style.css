@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -94,6 +95,9 @@ body {
     left: 70%;
 }
 
+
+/* GAME OVER */
+
 .gameOver {
     display: none;
     position: absolute;
@@ -104,7 +108,7 @@ body {
     padding: 40px;
     text-align: center;
     border-radius: 15px;
-    z-index: 20;
+    z-index: 40;
 }
 
 .gameOver h2 {
@@ -125,53 +129,17 @@ body {
     cursor: pointer;
 }
 
-.mobileControls {
-    display: none;
-    position: absolute;
-    bottom: 25px;
-    left: 0;
-    width: 100%;
-    justify-content: space-around;
-    z-index: 30;
-}
 
-.mobileControls button {
-    width: 65px;
-    height: 65px;
-    border: none;
-    border-radius: 50%;
-    background: #555;
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-
-    .mobileControls {
-        display: flex;
-    }
-
-    .title {
-        font-size: 22px;
-        top: 15px;
-        left: 15px;
-    }
-
-    .score {
-        font-size: 18px;
-        top: 18px;
-        right: 15px;
-    }
-}
+/* MOBILE CONTROLS */
 
 .mobileControls {
     display: none;
     position: absolute;
-    bottom: 80px;
+    bottom: 20px;
     left: 0;
     width: 100%;
     justify-content: space-around;
+    align-items: center;
     z-index: 30;
 }
 
@@ -187,10 +155,17 @@ body {
     touch-action: manipulation;
 }
 
+
+/* MOBILE */
+
 @media (max-width: 768px) {
 
     .mobileControls {
         display: flex;
+    }
+
+    .mobileControls button {
+        display: block;
     }
 
     .title {
@@ -204,37 +179,18 @@ body {
         top: 18px;
         right: 15px;
     }
+
 }
 
-.gameOver {
-    z-index: 40;
-}
 
-.gameOver[style*="display: block"]~.mobileControls {
-    display: none;
-}
+/* GAME OVER PAR CONTROLS HIDE */
 
 @media (max-width: 768px) {
 
     .game:has(.gameOver[style*="display: block"]) .mobileControls {
-        display: none !important;
+        display: none;
     }
 
 }
-@media (max-width: 768px) {
-    .mobileControls {
-        display: flex !important;
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        width: 100%;
-        justify-content: space-around;
-        z-index: 100;
-    }
 
-    .mobileControls button {
-        display: block !important;
-        width: 65px;
-        height: 65px;
-    }
-}
+
